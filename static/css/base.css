@@ -2,28 +2,38 @@ html {
     height: 100%;
 }
 
-body {
-    height: calc(100vh - 164px);
+/* -------------- header styling ---------------- */
+
+.logo {
+    text-transform: uppercase;
+    font-family: 'Lexend Mega', sans-serif;
+    color: #fff;
+    margin-bottom: 0;
+    padding-top: 8px;
+}
+
+.float-right {
+    float: right;  
+}
+
+.float-right li { 
+    display: table-cell;
+    vertical-align: middle;
+    float:left;
+    margin-bottom: 0;
+}
+.text-white{
+    color: #fff;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 /* -------------- media queries ----------------- */
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-}
-
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-}
