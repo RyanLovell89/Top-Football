@@ -35,67 +35,68 @@
   </head>
 
   <body>
-    <header class="container-fluid fixed-top">
-       <div class="row bg-dark">
-           <div class="col-12 col-lg-6">
-               <h1 class="logo">Top Football</h1>
-           </div>
-           <div class="col-12 col-lg-6">
-               <ul class= "list-inline list-unstyled float-right mb-0">
-                   <li class="list-inline-item dropdown">
-                        <a class="nav-link mt-2" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div>
-                                <div class="text-white"><p><i class="far fa-user-circle"></i> Account</p></div>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            {% if request.user.is_authenticated %}
-                                        {% if request.user.is_superuser %}
-                                            <a href="" class="dropdown-item">Product Management</a>
-                                        {% endif %}
-                                        <a href="" class="dropdown-item">Profile</a>
-                                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                    {% else %}
-                                        <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
-                                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                    {% endif %}
-                        </div>
-                   </li>         
-                   <li class="list-inline-item">
-                       <a class="{% if grand_total %}text-white font-weight-bold{% else %}text-white{% endif %} nav-link mt-2" href="">
-                            <div>
-                                <p>
-                                    {% if grand_total %}
-                                        £{{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        £0.00
-                                    {% endif %} <i class="fas fa-shopping-basket"></i>
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-           </div>
-       </div>
-       <div class="row pt-2">
-           <div class="col-12 col-lg-6 offset-lg-3">
-                <form method="GET" action="">
-                    <div class="input-group w-100">
-                        <input class="form-control" type="text" name="q" placeholder="Search">
-                        <div class="input-group-append">
-                            <button class="form-control" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+        <!-- header with page logo with account dropdown and basket information -->
+        <header class="container-fluid fixed-top">
+            <div class="row bg-dark">
+                <div class="col-12 col-lg-6">
+                    <h1 class="logo">Top Football</h1>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <ul class= "list-inline list-unstyled float-right mb-0">
+                        <li class="list-inline-item dropdown">
+                                <a class="nav-link mt-2" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div>
+                                        <div class="text-white"><p><i class="far fa-user-circle"></i> Account</p></div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    {% if request.user.is_authenticated %}
+                                                {% if request.user.is_superuser %}
+                                                    <a href="" class="dropdown-item">Product Management</a>
+                                                {% endif %}
+                                                <a href="" class="dropdown-item">Profile</a>
+                                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                            {% else %}
+                                                <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                            {% endif %}
+                                </div>
+                        </li>         
+                        <li class="list-inline-item">
+                            <a class="{% if grand_total %}text-white font-weight-bold{% else %}text-white{% endif %} nav-link mt-2" href="">
+                                    <div>
+                                        <p>
+                                            {% if grand_total %}
+                                                £{{ grand_total|floatformat:2 }}
+                                            {% else %}
+                                                £0.00
+                                            {% endif %} <i class="fas fa-shopping-basket"></i>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                </div>
             </div>
-       </div>
-    </header>
 
-    
+            <!-- search bar -->
+            <div class="row pt-2">
+                <div class="col-12 col-lg-6 offset-lg-3">
+                        <form method="GET" action="">
+                            <div class="input-group w-100">
+                                <input class="form-control" type="text" name="q" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button class="form-control" type="submit">
+                                        <span class="icon">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </header>    
 
     {% if messages %}
         <div class="message-container"></div>
