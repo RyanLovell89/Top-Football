@@ -22,8 +22,12 @@ html {
     float:left;
     margin-bottom: 0;
 }
-.text-white{
+.text-white {
     color: #fff;
+}
+
+.text-black {
+    color: #000;
 }
 
 /* from Bulma */
