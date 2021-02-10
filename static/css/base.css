@@ -83,3 +83,12 @@ html {
     height: 1.5rem;
     width: 1.5rem;
 }
+
+/* ------------- media queries ------------- */
+
+@media screen and (max-width: 800px) {
+  .main-nav {
+    visibility: hidden;
+    display: none;
+  }
+}
