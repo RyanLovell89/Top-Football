@@ -39,9 +39,9 @@
         <header class="container-fluid fixed-top">
             <div class="row bg-dark">
                 <div class="col-12 col-lg-6">
-                    <h1 class="logo">Top Football</h1>
+                    <h1 class="logo logo-mobile-display">Top Football</h1>
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 mobile-display">
                     <ul class= "list-inline list-unstyled float-right mb-0">
                         <li class="list-inline-item dropdown">
                             <a class="nav-link mt-2" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -97,9 +97,10 @@
                 </div>
             </div>
 
-            <nav class="navbar navbar-light bg-white">
-                <div class="container-fluid w-100 main-nav">
+            <nav class="navbar w-100">
+                <div class="container-fluid w-100">
                     {% include 'includes/main-nav.html' %}
+                    {% include 'includes/mobile-nav.html' %}
                 </div>
             </nav>
 

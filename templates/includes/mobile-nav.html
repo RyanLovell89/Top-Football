@@ -1,0 +1,131 @@
+<div class="row w-100 mobile-nav">
+
+    <div class="row">
+
+        <div class="d-flex justify-content-center">
+
+            <ul class= "list-inline list-unstyled">
+                <li class="list-inline-item dropdown">
+                    <a class="nav-link" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div>
+                            <div class="text-black"><p>Account <i class="far fa-user-circle"></i></p></div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <a href="" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="" class="dropdown-item">Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+
+                <li class="list-inline-item">
+                    <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                        <div>
+                            <p>
+                                {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    £0.00
+                                {% endif %} <i class="fas fa-shopping-basket"></i>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <p>
+        <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <i class="fas fa-bars"></i>
+        </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+
+        <div class="card card-body">
+
+            <ul class= "list-inline list-unstyled">
+
+                <li class="nav-item dropdown list-inline-item">
+                    <button class="nav-link mt-2 text-white all-shirts-button-image" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a>
+                            <strong>All Shirts</strong>
+                        </a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="" class="dropdown-item">By Price</a>
+                        <a href="" class="dropdown-item">By League</a>
+                        <a href="" class="dropdown-item">All Shirts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown list-inline-item">
+                    <button class="nav-link mt-2 text-white premier-league-button-image" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a>
+                        <strong>Premier League</strong>
+                        </a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="" class="dropdown-item">By Price</a>
+                        <a href="" class="dropdown-item">Home</a>
+                        <a href="" class="dropdown-item">Away</a>
+                        <a href="" class="dropdown-item">All Shirts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown list-inline-item">
+                    <button class="nav-link mt-2 text-white championship-button-image" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a>
+                            <strong>Championship</strong>
+                        </a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="" class="dropdown-item">By Price</a>
+                        <a href="" class="dropdown-item">Home</a>
+                        <a href="" class="dropdown-item">Away</a>
+                        <a href="" class="dropdown-item">All Shirts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown list-inline-item">
+                    <button class="nav-link mt-2 text-white league-one-button-image" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a>
+                            <strong>League One</strong>
+                        </a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="" class="dropdown-item">By Price</a>
+                        <a href="" class="dropdown-item">Home</a>
+                        <a href="" class="dropdown-item">Away</a>
+                        <a href="" class="dropdown-item">All Shirts</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown list-inline-item">
+                    <button class="nav-link mt-2 text-white league-two-button-image" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a>
+                            <strong>League Two</strong>
+                        </a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="" class="dropdown-item">By Price</a>
+                        <a href="" class="dropdown-item">Home</a>
+                        <a href="" class="dropdown-item">Away</a>
+                        <a href="" class="dropdown-item">All Shirts</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>

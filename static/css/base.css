@@ -65,6 +65,10 @@ html {
     font-size: 14px;
 }
 
+/* -------------- mobile nav stylings ---------------- */
+
+
+
 /* -------------- text color stylings ---------------- */
 
 .text-white {
@@ -76,6 +80,7 @@ html {
 }
 
 /* -------------- from Bulma -------------- */
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -87,8 +92,22 @@ html {
 /* ------------- media queries ------------- */
 
 @media screen and (max-width: 800px) {
-  .main-nav {
+  .main-nav,
+  .mobile-display {
     visibility: hidden;
     display: none;
   }
+}
+
+@media screen and (max-width: 800px) {
+    .logo-mobile-display {
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .mobile-nav {
+        visibility: hidden;
+        display: none;
+    }
 }
