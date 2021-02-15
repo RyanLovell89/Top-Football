@@ -6,6 +6,7 @@ html {
 
 .logo {
     text-transform: uppercase;
+    text-decoration: none;
     font-family: 'Lexend Mega', sans-serif;
     color: #fff;
     margin-bottom: 0;
@@ -76,6 +77,13 @@ html {
 .shirts-header {
     font-family: 'Lexend Mega', sans-serif;
     text-transform: uppercase;
+}
+
+/* -------------- product information styling ------------- */
+
+.product-info {
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* -------------- text color stylings ---------------- */
