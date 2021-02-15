@@ -66,6 +66,15 @@ html {
     font-size: 14px;
 }
 
+.nav-style {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+}
+
 /* -------------- shirts page stylings ---------------- */
 
 .h2-line {
