@@ -4,12 +4,17 @@
 
         <ul class= "list-inline list-unstyled">
 
-            <li class="nav-item list-inline-item">
-                <button class="nav-link mt-2 all-shirts-button-image">
-                    <a class="nav-style" href="{% url 'products' %}">
+            <li class="nav-item list-inline-item dropdown">
+                <button class="nav-link mt-2 all-shirts-button-image" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-style" href="#">
                         <strong>All Shirts</strong>
                     </a>
                 </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="{% url 'products' %}">All Shirts</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
+                </ul>
             </li>
 
             <li class="nav-item list-inline-item">
