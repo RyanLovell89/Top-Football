@@ -95,6 +95,14 @@ a:hover {
     margin-top: 20px;
 }
 
+.category-link {
+    color: #fff;
+}
+
+.category-info-link {
+    color: #000;
+}
+
 /* -------------- text color stylings ---------------- */
 
 .text-white {

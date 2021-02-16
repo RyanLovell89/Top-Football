@@ -21,6 +21,11 @@
                 <div class="product-info">
                     <p>
                         {{ product.name }}<br>
+                        {% if product.category %}
+                            <a class="category-info-link" href="{% url 'products' %}?category={{ product.category.name }}">
+                                <i class="fas fa-futbol"></i> {{ product.category.friendly_name }}
+                            </a>
+                        {% endif %}<br>
                         <strong>£{{ product.price }}</strong><br>
                         {{ product.description }}
                     </p>
