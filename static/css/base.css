@@ -4,6 +4,10 @@ html {
     height: 100%;
 }
 
+a:hover {
+ cursor:pointer;
+}
+
 /* -------------- header styling ---------------- */
 
 .logo {
@@ -24,6 +28,14 @@ html {
     vertical-align: middle;
     float:left;
     margin-bottom: 0;
+}
+
+.delivery-banner {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Lexend Mega', sans-serif;
+    color: #fff;
+    padding-top: 5px;
 }
 
 /* -------------- navbar stylings ---------------- */

@@ -100,12 +100,20 @@
                 </div>
             </div>
 
+            <!-- nav bars -->
             <nav class="navbar w-100">
                 <div class="container-fluid w-100">
                     {% include 'includes/main-nav.html' %}
                     {% include 'includes/mobile-nav.html' %}
                 </div>
             </nav>
+
+            <!-- info banner -->
+            <div class="row text-center">
+                <div class="col bg-dark text-white mb-1">
+                    <h4 class="delivery-banner">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
+                </div>            
+            </div>
 
         </header>    
 
