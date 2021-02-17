@@ -193,3 +193,17 @@ a:hover {
     margin-bottom: 10px;
   }
 }
+
+@media screen and (max-width: 800px) {
+    .mobile-image {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .desktop-image {
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+}
