@@ -77,7 +77,7 @@ a:hover {
   color: #000;
 }
 
-/* -------------- shirts page stylings ---------------- */
+/* -------------- header stylings ---------------- */
 
 .h2-line {
     width: 100%;
@@ -85,10 +85,12 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.shirts-header {
+.page-header {
     font-family: 'Lexend Mega', sans-serif;
     text-transform: uppercase;
 }
+
+/* -------------- shirts page stylings ---------------- */
 
 .btt-button {
     height: 42px;
@@ -117,6 +119,12 @@ a:hover {
 
 .category-info-link {
     color: #000;
+}
+
+/* -------------- bag stylings ---------------- */
+
+.back-link {
+    background-color: #000;
 }
 
 /* -------------- text color stylings ---------------- */

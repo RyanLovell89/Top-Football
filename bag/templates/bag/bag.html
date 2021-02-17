@@ -10,5 +10,26 @@
 {% endblock %}
 
 {% block content %}
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="page-header">Bag</h2>
+                <hr class="h2-line">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if bag_item %}
+                    <div class="table-responsive"></div>
+                {% else %}
+                    <p>The bag is empty.</p>
+                    <button class="btn nav-link mt-2 back-link">
+                        <a class="text-white" href="{% url 'products' %}">
+                            <i class="fas fa-arrow-left"></i> <strong>All Shirts</strong>
+                        </a>
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
