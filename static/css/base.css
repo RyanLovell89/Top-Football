@@ -133,6 +133,12 @@ a:hover {
     color: #000;
 }
 
+.center-input {
+    margin:auto;
+    text-align:center;
+    display:block;
+}
+
 /* -------------- bag stylings ---------------- */
 
 .back-link {
@@ -180,4 +186,10 @@ a:hover {
         visibility: hidden;
         display: none;
     }
+}
+
+@media screen and (max-width: 800px) {
+  .mobile-product-buttons {
+    margin-bottom: 10px;
+  }
 }
