@@ -35,6 +35,20 @@
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
+                            {% with product.product_sizes as s %}
+                            {% if s %}
+                                <div class="col-12 center-input w-50">
+                                    <p>Size:</p>
+                                    <select class="form-select" name="product_size" id="id_product_size">
+                                        <option value="xs">XS</option>
+                                        <option value="s">S</option>
+                                        <option value="m" selected>M</option>
+                                        <option value="l">L</option>
+                                        <option value="xl">XL</option>
+                                        <option value="xxl">XXL</option>
+                                    </select>
+                                </div>
+                            {% endif %}
                             <div class="col-12">
                                 <p>Quantity:</p>
                                 <div class="form-group center-input w-50">
@@ -52,6 +66,7 @@
                             <input type="submit" class="btn btn-dark" value="Add To Bag">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% endwith %}
                     </form>
                 </div>
             </div>
