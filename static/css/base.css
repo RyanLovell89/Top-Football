@@ -4,10 +4,6 @@ html {
     height: 100%;
 }
 
-a:hover {
- cursor:pointer;
-}
-
 /* -------------- header styling ---------------- */
 
 .logo {
@@ -141,8 +137,25 @@ a:hover {
 
 /* -------------- bag stylings ---------------- */
 
-.back-link {
+.bag-button {
+    background-color: #fff;
+    color: #000;
+    width: 25%;
+    font-size: 16px;
+    margin-right: 8px;
+    float: right;
+}
+
+.all-shirts-button {
     background-color: #000;
+    color: #fff;
+    width: 25%;
+    font-size: 16px;
+    float: left;
+}
+
+.text-right {
+    text-align: right;
 }
 
 /* -------------- text color stylings ---------------- */

@@ -19,15 +19,74 @@
         </div>
         <div class="row">
             <div class="col">
-                {% if bag_item %}
-                    <div class="table-responsive"></div>
+                {% if bag_items %}
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Information</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            {% for item in bag_items %}
+                                <tr>
+                                    <td class="w-25">
+                                        <img class="img-fluid" src="{{ item.product.image.url }}">
+                                    </td>
+                                    <td>
+                                        <p>Product Name: {{ item.product.name }}</p>
+                                        <p>Product Number: {{ item.product.product_number|upper }}</p>
+                                    </td>
+                                    <td>
+                                        <p>£{{ item.product.price }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ item.quantity }}</p>
+                                    </td>
+                                    <td>
+                                        <p>£{{ item.product.price }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="10" class="text-right">
+                                    <h6>Bag Total: £{{ total|floatformat:2 }}</h6>
+                                    <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                                    <h4>Grand Total: £{{ grand_total|floatformat:2 }}</h4>
+                                    {% if free_delivery_delta > 0 %}
+                                        <p>
+                                            Spend £{{ free_delivery_delta }} more and delivery would be free!
+                                        </p>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">
+                                    <a class="btn btn-lg mt-2 bag-button" href="">
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i> <strong>Secure Checkout</strong>
+                                        </span>
+                                    </a>
+                                    <a class="btn btn-lg mt-2 bag-button" href="{% url 'products' %}">
+                                        <span class="icon">
+                                            <i class="fas fa-arrow-left"></i> All Shirts
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 {% else %}
                     <p>The bag is empty.</p>
-                    <button class="btn nav-link mt-2 back-link">
-                        <a class="text-white" href="{% url 'products' %}">
-                            <i class="fas fa-arrow-left"></i> <strong>All Shirts</strong>
+                        <a class="btn nav-link mt-2 all-shirts-button" href="{% url 'products' %}">
+                            <span class="icon">
+                                <i class="fas fa-arrow-left"></i> <strong>All Shirts</strong>
+                            </span>
                         </a>
-                    </button>
                 {% endif %}
             </div>
         </div>
