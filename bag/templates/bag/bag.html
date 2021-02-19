@@ -46,7 +46,37 @@
                                         <p>£{{ item.product.price }}</p>
                                     </td>
                                     <td>
-                                        <p>{{ item.quantity }}</p>
+                                        <form class="form update-form" method="POST" action="">
+                                            {% csrf_token %}
+                                            <div class="form-group center-input">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <button class="minus-qty btn btn-sm btn-danger"
+                                                            data-item_id="{{ item.item_id }}" id="minus-qty_{{ item.item_id }}">
+                                                            <span>
+                                                                <i class="fas fa-minus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <input class="form-control form-control-sm qty_input" type="number" 
+                                                        name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                                        data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                    <div class="input-group-append">
+                                                        <button class="plus-qty btn btn-sm btn-success"
+                                                            data-item_id="{{ item.item_id }}" id="plus-qty_{{ item.item_id }}">
+                                                            <span>
+                                                                <i class="fas fa-plus fa-sm"></i>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    {% if item.product.product_sizes %}
+                                                        <input type="hidden" name="product_size" value="{{ itme.size }}">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <a class="update-link text-success"><small>Update</small></a>
+                                        <a class="delete-link text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size}}"><small>Delete</small></a>
                                     </td>
                                     <td>
                                         <p>£{{ item.product.price }}</p>
@@ -92,4 +122,32 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/qty_script.html' %}
+
+<script type="text/javascript">
+    // Updates the quantity
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form')
+        form.submit();
+    })
+
+    // Deletes the product
+    $('.delete-link').click(function(e) {
+        var csrfToken = "{{ csrf_token }}"
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('size');
+        var url = `/bag/delete/${itemId}`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+
+        $.post(url, data)
+        .done(function() {
+            location.reload()
+        });
+    })
+</script>
+
 {% endblock %}

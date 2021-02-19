@@ -20,7 +20,7 @@
         controlButton(itemId);
     });
 
-    // Increment quantity
+    // Plus quantity
     $('.plus-qty').click(function(e) {
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
@@ -30,7 +30,7 @@
        controlButton(itemId);
     });
 
-    // Decrement quantity
+    // Minus quantity
     $('.minus-qty').click(function(e) {
        e.preventDefault();
        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];

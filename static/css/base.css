@@ -109,7 +109,9 @@ a:hover {
     border: solid 2px black;
 }
 
-.btt-link {
+.btt-link,
+.update-link,
+.delete-link {
     cursor: pointer;
     text-decoration: none;
 }
