@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -46,7 +47,7 @@
                                         <p>£{{ item.product.price }}</p>
                                     </td>
                                     <td>
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'update_to_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group center-input">
                                                 <div class="input-group">
@@ -57,7 +58,7 @@
                                                                 <i class="fas fa-minus fa-sm"></i>
                                                             </span>
                                                         </button>
-                                                    </div>
+                                                   </div>
                                                     <input class="form-control form-control-sm qty_input" type="number" 
                                                         name="quantity" value="{{ item.quantity }}" min="1" max="99" 
                                                         data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
@@ -70,16 +71,16 @@
                                                         </button>
                                                     </div>
                                                     {% if item.product.product_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ itme.size }}">
+                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
                                                     {% endif %}
                                                 </div>
                                             </div>
                                         </form>
                                         <a class="update-link text-success"><small>Update</small></a>
-                                        <a class="delete-link text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size}}"><small>Delete</small></a>
+                                        <a class="delete-link text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Delete</small></a>
                                     </td>
                                     <td>
-                                        <p>£{{ item.product.price }}</p>
+                                        <p>£{{ item.product.price | calculate_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -139,9 +140,9 @@
     $('.delete-link').click(function(e) {
         var csrfToken = "{{ csrf_token }}"
         var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('size');
-        var url = `/bag/delete/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+        var size = $(this).data('product_size');
+        var url = `/bag/delete/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
 
         $.post(url, data)
         .done(function() {
