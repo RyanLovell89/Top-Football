@@ -10,15 +10,18 @@ from products.models import Product
 
 class OrderInformation(models.Model):
 
+    class Meta:
+        verbose_name_plural = 'Order Information'
+
     order_number = models.CharField(max_length=20, null=False, editable=False)
     full_name = models.CharField(max_length=40, null=False, blank=False)
     email_address = models.EmailField(max_length=300, null=False, blank=False)
     contact_number = models.CharField(max_length=20, null=False, blank=False)
-    postal_code = models.CharField(max_length=15, null=False, blank=False)
     town_or_city = models.CharField(max_length=50, null=False, blank=False)
     street_name_1 = models.CharField(max_length=100, null=False, blank=False)
     street_name_2 = models.CharField(max_length=100, null=False, blank=False)
     county = models.CharField(max_length=50, null=False, blank=False)
+    postal_code = models.CharField(max_length=15, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     delivery_costs = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=8, decimal_places=2, null=False, default=0)
