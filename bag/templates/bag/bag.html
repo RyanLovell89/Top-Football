@@ -36,7 +36,7 @@
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="w-25">
-                                        <img class="img-fluid" src="{{ item.product.image.url }}">
+                                        <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                     </td>
                                     <td>
                                         <p>Product Name: {{ item.product.name }}</p>
@@ -98,7 +98,7 @@
                             </tr>
                             <tr>
                                 <td colspan="10">
-                                    <a class="btn btn-lg mt-2 bag-button" href="">
+                                    <a class="btn btn-lg mt-2 bag-button" href="{% url 'checkout' %}">
                                         <span class="icon">
                                             <i class="fas fa-lock"></i> <strong>Secure Checkout</strong>
                                         </span>

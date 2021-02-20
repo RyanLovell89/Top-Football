@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="page-header">Checkout</h2>
+                <hr class="h2-line">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-6">
+               <div class="table-responsive">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product Information</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price</th>
+                                <th scope="col" class="text-right">Quantity</th>
+                                <th scope="col" class="text-right">Subtotal</th>
+                            </tr>
+                        </thead>
+                        {% for item in bag_items %}
+                            <tr>
+                                <td class="w-25">
+                                    <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                </td>
+                                <td>
+                                    <p>Product Name:<br> {{ item.product.name }}</p>
+                                    <p>Size:<br> {% if item.product.product_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                                    <p>Product Number:<br> {{ item.product.product_number|upper }}</p>
+                                </td>
+                                <td>
+                                    <p>£{{ item.product.price }}</p>
+                                </td>
+                                <td><p class="text-right">{{ item.quantity }}</p></td>
+                                <td><p class="text-right">£{{ item.product.price | calculate_subtotal:item.quantity }}</p></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"><strong><p class="text-start">Order Total</p></strong></th>
+                                <th scope="col"><strong><p class="text-center">Delivery</p></strong></th>
+                                <th scope="col"><strong><p class="text-end">Grand Total</p></strong></th>
+                            </tr>
+                        </thead>
+                        <td>
+                            <p>£{{ total | floatformat:2 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">£{{ delivery | floatformat:2 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-end">£{{ grand_total | floatformat:2 }}</p>
+                        </td>
+                    </table>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="form-paragraph">Please fill the below form to complete your order.</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Customer Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email_address | as_crispy_field }}
+                        {{ order_form.contact_number | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Delivery Information</legend>
+                        {{ order_form.street_name_1 | as_crispy_field }}
+                        {{ order_form.street_name_2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.postal_code | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        <div class="form-check form-check-inline ps-0">
+                            {% if user.is_authenticated %}
+                                <label class="form-check-label" for="id-save-information">Save the delivery information to my account</label>
+                                <input class="form-check-input" type="checkbox" id="id-save-infomation" name="save-information" checked>
+                            {% else %}
+                                <label class="form-check-label" for="id-save-information">
+                                    <a class="btn btn-dark" href="{% url 'account_signup' %}">Create a account here</a>
+                                    <a class="btn btn-dark" href="{% url 'account_login' %}">Login</a> to save your information
+                                </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="fieldset-label text-right">Payment</legend>
+                        <div id="card-element"></div>
+                        <div class="text-danger" id="card-error" role="alert"></div>
+                    </fieldset>
+                    <div class="submit-button float-right">
+                        <a href="{% url 'view_bag' %}" class="btn btn-dark">
+                            <span class="icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            <span class="text-white">Adjuct Bag</span>
+                        </a>
+                        <button id="subtmit-button" class="btn btn-dark">
+                            <span>Finalize Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                        <p class="text-danger">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </span>
+                            <span>The following ammount £{{ grand_total|floatformat:2 }} will be charged to your card.</span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

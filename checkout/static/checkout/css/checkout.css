@@ -1,0 +1,20 @@
+.text-right {
+    text-align: right;
+}
+
+.form-paragraph {
+    font-size: 18px;
+    text-align: center;
+}
+
+.form-group {
+    padding-bottom: 8px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
