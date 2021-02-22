@@ -24,18 +24,131 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-lg-6">
+               <div class="table-responsive">
+                    <table class="table table-dark table-hover">
+                       <thead>
+                            <tr>
+                                <th scope="col">Order Information</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
 
+                            <tr>
+                                <td>
+                                    Order Number:<br>
+                                    Ordered On:
+                                </td>
+                                <td>
+                                    <p class="text-end">
+                                        {{ order.order_number }}<br>
+                                        {{ order.date }}
+                                    </p>
+                                </td>
+                            </tr>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Item/s Ordered</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                            <tr>
+                                <td>
+                                    Name:<br>
+                                    Size:<br>
+                                    Amount:
+                                </td>
+                                <td>
+                                    {% for item in order.lineitems.all %}
+                                    <p class="text-end">
+                                        {{ item.product.name }}<br>
+                                        {% if item.product_size %}{{ item.product_size|upper }}{% endif %}<br>
+                                        {{ item.quantity }} @ £{{ item.product.price }} each
+                                    </p>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Delivery Address</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                            <tr>
+                                <td>
+                                    Name:<br>
+                                    Street Name 1:<br>
+                                    Street Name 2:<br>
+                                    Town or City:<br>
+                                    County:<br>
+                                    Postal Code:
+                                    
+                                </td>
+                                <td>
+                                    <p class="text-end">
+                                        {{ order.full_name }}<br>
+                                        {{ order.street_name_1 }}<br>
+                                        {{ order.street_name_2 }}<br>
+                                        {{ order.town_or_city }}<br>
+                                        {{ order.county }}<br>
+                                        {{ order.postal_code }}
+                                    </p>
+                                </td>
+                            </tr>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Contact Information</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                            <tr>
+                                <td>
+                                    Email Address:<br>
+                                    Contact Number:                                    
+                                </td>
+                                <td>
+                                    <p class="text-end">
+                                        {{ order.email_address }}<br>
+                                        {{ order.contact_number }}
+                                    </p>
+                                </td>
+                            </tr>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Invoice Information</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                            <tr>
+                                <td>
+                                    Order Total:<br>
+                                    Delivery Costs:<br>
+                                    Grand Total:                                    
+                                </td>
+                                <td>
+                                    <p class="text-end">
+                                        £{{ order.order_total }}<br>
+                                        £{{ order.delivery_costs }}<br>
+                                        £{{ order.grand_total }}
+                                    </p>
+                                </td>
+                            </tr>
+                    </table>
+               </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-12 col-lg-7">
-                <a class="btn btn-dark mt-2 all-shirts-button" href="{% url 'products' %}">
-                    <span class="icon">
-                        <i class="fas fa-arrow-left"></i> <strong>All Shirts</strong>
-                    </span>
-                </a>
+            <div class="col-12 col-lg-6 pb-3">
+            <a class="btn btn-dark text-white" href="{% url 'products' %}">
+                <i class="fas fa-arrow-left"></i> All Shirts
+            </a>
             </div>
         </div>
+
     </div>
 {% endblock %}
