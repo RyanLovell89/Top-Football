@@ -8,7 +8,7 @@ class OrderingForm(forms.ModelForm):
         fields = ('full_name', 'email_address', 'contact_number',
                   'street_name_1', 'street_name_2',
                   'town_or_city', 'postal_code', 'county',)
-    
+
     def __init__(self, *args, **kwargs):
 
         super().__init__(*args, **kwargs)

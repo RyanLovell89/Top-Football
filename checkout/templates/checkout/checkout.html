@@ -97,18 +97,24 @@
                                 <input class="form-check-input" type="checkbox" id="id-save-infomation" name="save-information" checked>
                             {% else %}
                                 <label class="form-check-label" for="id-save-information">
-                                    <a class="btn btn-dark" href="{% url 'account_signup' %}">Create a account here</a>
-                                    <a class="btn btn-dark" href="{% url 'account_login' %}">Login</a> to save your information
+                                    <a href="{% url 'account_signup' %}">Create a account here</a> or
+                                    <a href="{% url 'account_login' %}">Login</a> to save your information
                                 </label>
                             {% endif %}
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend class="fieldset-label text-right">Payment</legend>
+                        <legend>Payment</legend>
+                        <p class="text-danger">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </span>
+                            <span>The following amount £{{ grand_total|floatformat:2 }} will be charged to your card.</span>
+                        </p>
                         <div id="card-element"></div>
                         <div class="text-danger" id="card-error" role="alert"></div>
                     </fieldset>
-                    <div class="submit-button float-right">
+                    <div class="submit-button py-2">
                         <a href="{% url 'view_bag' %}" class="btn btn-dark">
                             <span class="icon">
                                 <i class="fas fa-arrow-left"></i>
@@ -121,15 +127,16 @@
                                 <i class="fas fa-lock"></i>
                             </span>
                         </button>
-                        <p class="text-danger">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span>
-                            <span>The following ammount £{{ grand_total|floatformat:2 }} will be charged to your card.</span>
-                        </p>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
