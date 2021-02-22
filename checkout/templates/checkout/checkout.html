@@ -112,7 +112,7 @@
                             <span>The following amount £{{ grand_total|floatformat:2 }} will be charged to your card.</span>
                         </p>
                         <div id="card-element"></div>
-                        <div class="text-danger" id="card-error" role="alert"></div>
+                        <div class="text-danger pt-2" id="card-errors" role="alert"></div>
                     </fieldset>
                     <div class="submit-button py-2">
                         <a href="{% url 'view_bag' %}" class="btn btn-dark">
