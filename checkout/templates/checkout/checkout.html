@@ -113,6 +113,7 @@
                         </p>
                         <div id="card-element"></div>
                         <div class="text-danger pt-2" id="card-errors" role="alert"></div>
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
                     <div class="submit-button py-2">
                         <a href="{% url 'view_bag' %}" class="btn btn-dark">
