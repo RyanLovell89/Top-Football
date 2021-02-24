@@ -1,0 +1,12 @@
+#update-information input::placeholder {
+    color: #aab7c4;
+}
+
+.form-group {
+    padding-bottom: 8px;
+}
+
+.form-control {
+    color: #000;
+    border: 1px solid #000
+}

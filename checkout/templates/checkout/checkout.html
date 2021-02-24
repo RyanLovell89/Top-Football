@@ -91,7 +91,7 @@
                         {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.postal_code | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
-                        <div class="form-check form-check-inline ps-0">
+                        <div class="form-check form-check-inline">
                             {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-information">Save the delivery information to my account</label>
                                 <input class="form-check-input" type="checkbox" id="id-save-infomation" name="save-information" checked>
