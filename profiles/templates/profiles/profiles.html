@@ -26,12 +26,49 @@
             <div class="col-12 col-lg-6">
                 <h6 class="page-header">Order History</h6>
                 <hr>
-                {{ order }}
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Order Number</th>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Products</th>
+                                <th scope="col">Order Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for orderinformation in order %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'order_history' orderinformation.order_number %}" title="{{ orderinformation.order_number }}">
+                                            {{ orderinformation.order_number|truncatechars:5 }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ orderinformation.date }}
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            {% for item in orderinformation.lineitems.all %}
+                                                <li>
+                                                    {{ item.product.name }}{% if item.product.product_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %} x{{ item.quantity }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        {{ orderinformation.grand_total }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
             <div class="col-12 col-lg-6">
                 <h6 class="page-header">Your Information</h6>
                 <hr>
-                <p>Default information entered from signed up.</p>
                 <form action="{% url 'profiles' %}" method="POST" id="update-information">
                     {% csrf_token %}
                     {{ form|crispy }}

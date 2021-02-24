@@ -33,7 +33,7 @@
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-
+                        <tbody>
                             <tr>
                                 <td>
                                     Order Number:<br>
@@ -46,13 +46,14 @@
                                     </p>
                                 </td>
                             </tr>
-
+                        </tbody>
                         <thead>
                             <tr>
                                 <th scope="col">Item/s Ordered</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
+                        <tbody>
                             <tr>
                                 <td>
                                     Name:<br>
@@ -69,13 +70,14 @@
                                     {% endfor %}
                                 </td>
                             </tr>
-
+                        </tbody>
                         <thead>
                             <tr>
                                 <th scope="col">Delivery Address</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
+                        <tbody>
                             <tr>
                                 <td>
                                     Name:<br>
@@ -97,13 +99,14 @@
                                     </p>
                                 </td>
                             </tr>
-
+                        </tbody>
                         <thead>
                             <tr>
                                 <th scope="col">Contact Information</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
+                        <tbody>
                             <tr>
                                 <td>
                                     Email Address:<br>
@@ -116,13 +119,14 @@
                                     </p>
                                 </td>
                             </tr>
-
+                        </tbody>
                         <thead>
                             <tr>
                                 <th scope="col">Invoice Information</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
+                        <tbody>
                             <tr>
                                 <td>
                                     Order Total:<br>
@@ -137,6 +141,7 @@
                                     </p>
                                 </td>
                             </tr>
+                        </tbody>
                     </table>
                </div>
             </div>
@@ -144,9 +149,15 @@
 
         <div class="row">
             <div class="col-12 col-lg-6 pb-3">
+            {% if from_profile %}
+            <a class="btn btn-dark text-white" href="{% url 'profiles' %}">
+                <i class="fas fa-arrow-left"></i> Profile
+            </a>
+            {% else %}
             <a class="btn btn-dark text-white" href="{% url 'products' %}">
                 <i class="fas fa-arrow-left"></i> All Shirts
             </a>
+            {% endif %}
             </div>
         </div>
 
