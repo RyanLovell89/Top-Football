@@ -1,0 +1,28 @@
+Hello, {{ orderinformation.full_name }}.
+
+Thank you for ordering from Top Football, here is your order information.
+
+Your Order Number: {{ orderinformation.order_number }}
+Ordered On: {{ orderinformation.date}}
+
+Order Total: £{{ orderinformation.order_total }}
+Delivery Costs: £{{ orderinformation.delivery_costs }}
+Grand Order Total: £{{ orderinformation.grand_total }}
+
+The order will be shipped to the following address:
+
+{{ orderinformation.street_name_1 }}
+{{ orderinformation.street_name_2 }}
+{{ orderinformation.town_or_city }}
+{{ order.county }}
+{{ order.postal_code }}
+
+We have the following contact information for you:
+
+Contact Number: {{ orderinformation.contact_number }}
+
+Thank you for ordering.
+
+Kind regards.
+
+Top Football
