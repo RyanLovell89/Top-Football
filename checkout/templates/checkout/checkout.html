@@ -89,8 +89,8 @@
                         {{ order_form.street_name_1 | as_crispy_field }}
                         {{ order_form.street_name_2 | as_crispy_field }}
                         {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.postal_code | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
+                        {{ order_form.postal_code | as_crispy_field }}
                         <div class="form-check form-check-inline">
                             {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-information">Save the delivery information to my account</label>
