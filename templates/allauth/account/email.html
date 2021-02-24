@@ -4,8 +4,9 @@
 
 {% block head_title %}{% trans "E-mail Addresses" %}{% endblock %}
 
-{% block content %}
-    <h1>{% trans "E-mail Addresses" %}</h1>
+{% block inner %}
+    <h2 class="page-header">{% trans "Email-Address" %}</h2>
+    <hr class="h2-line">
 {% if user.emailaddress_set.all %}
 <p>{% trans 'The following e-mail addresses are associated with your account:' %}</p>
 
@@ -53,6 +54,13 @@
         <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
     </form>
   {% endif %}
+
+<a class="btn btn-dark" href="{% url 'home' %}">
+    <span class="icon">
+        <i class="fas fa-arrow-left"></i>
+    </span>
+    <span class="text-white">Home</span>
+</a>
 
 {% endblock %}
 
