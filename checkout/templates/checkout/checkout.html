@@ -37,6 +37,7 @@
                             </tr>
                         </thead>
                         {% for item in bag_items %}
+                        <tbody>
                             <tr>
                                 <td class="w-25">
                                     <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}">
@@ -52,6 +53,7 @@
                                 <td><p class="text-right">{{ item.quantity }}</p></td>
                                 <td><p class="text-right">£{{ item.product.price | calculate_subtotal:item.quantity }}</p></td>
                             </tr>
+                        </tbody>
                         {% endfor %}
                     </table>
                     <table class="table table-dark table-hover">
@@ -62,15 +64,17 @@
                                 <th scope="col"><strong><p class="text-end">Grand Total</p></strong></th>
                             </tr>
                         </thead>
-                        <td>
-                            <p>£{{ total | floatformat:2 }}</p>
-                        </td>
-                        <td>
-                            <p class="text-center">£{{ delivery | floatformat:2 }}</p>
-                        </td>
-                        <td>
-                            <p class="text-end">£{{ grand_total | floatformat:2 }}</p>
-                        </td>
+                        <tbody>
+                            <td>
+                                <p>£{{ total | floatformat:2 }}</p>
+                            </td>
+                            <td>
+                                <p class="text-center">£{{ delivery | floatformat:2 }}</p>
+                            </td>
+                            <td>
+                                <p class="text-end">£{{ grand_total | floatformat:2 }}</p>
+                            </td>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -93,8 +97,8 @@
                         {{ order_form.postal_code | as_crispy_field }}
                         <div class="form-check form-check-inline">
                             {% if user.is_authenticated %}
-                                <label class="form-check-label" for="id-save-information">Save the delivery information to my account</label>
-                                <input class="form-check-input" type="checkbox" id="id-save-infomation" name="save-information" checked>
+                                <label class="form-check-label" for="id-save-info">Save the delivery information to my account</label>
+                                <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
                             {% else %}
                                 <label class="form-check-label" for="id-save-information">
                                     <a href="{% url 'account_signup' %}">Create a account here</a> or
