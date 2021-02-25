@@ -49,24 +49,24 @@
                 <div class="col-12 col-lg-6 mobile-display">
                     <ul class= "list-inline list-unstyled float-right mb-0">
                         <li class="list-inline-item dropdown">
-                            <a class="nav-link mt-2" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div>
-                                    <div class="text-white"><p><i class="far fa-user-circle"></i> Account</p></div>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="{% url 'add_product_to_store' %}" class="dropdown-item">Product Management</a>
+                            <div class="dropdown pt-2">
+                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    {% if request.user.is_authenticated %}
+                                        {% if request.user.is_superuser %}
+                                            <li><a href="{% url 'add_product_to_store' %}" class="dropdown-item">Product Management</a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'profiles' %}" class="dropdown-item">Profile</a></li>
+                                        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a></li>
+                                        <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
                                     {% endif %}
-                                    <a href="{% url 'profiles' %}" class="dropdown-item">Profile</a>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                                {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                                {% endif %}
-                            </div>
-                        </li>         
+                                </ul>
+                            </div> 
+                        </li>
                         <li class="list-inline-item">
                             <a class="{% if grand_total %}text-white font-weight-bold{% else %}text-white{% endif %} nav-link mt-2" href="{% url 'view_bag' %}">
                                 <div>
