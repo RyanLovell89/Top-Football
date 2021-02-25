@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 from .models import Product, Category
 from .forms import ProductsForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -68,7 +69,12 @@ def product_information(request, product_id):
     return render(request, 'products/product_information.html', context)
 
 
+@login_required
 def add_product_to_store(request):
+
+    if not request.user.is_superuser:
+        messages.error(request, f'Error! Your not allowed here, sorry.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ProductsForm(request.POST, request.FILES)
@@ -90,7 +96,12 @@ def add_product_to_store(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_product_on_store(request, product_id):
+
+    if not request.user.is_superuser:
+        messages.error(request, f'Error! Your not allowed here, sorry.')
+        return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -114,7 +125,12 @@ def edit_product_on_store(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_product_on_store(request, product_id):
+
+    if not request.user.is_superuser:
+        messages.error(request, f'Error! Your not allowed here, sorry.')
+        return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()

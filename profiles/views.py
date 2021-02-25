@@ -3,8 +3,10 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UsersProfileForm
 from checkout.models import OrderInformation
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def profiles(request):
 
     profile = get_object_or_404(UserProfile, user=request.user)
