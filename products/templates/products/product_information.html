@@ -30,6 +30,14 @@
                         {{ product.description }}
                     </p>
                 </div>
+                {% if request.user.is_superuser %}
+                <div class="text-center">
+                    <small>
+                        <a class="text-danger" href="{% url 'delete_product_on_store' product.id %}">Delete Product</a> |
+                        <a class="text-success" href="{% url 'edit_product_on_store' product.id %}">Edit Product</a>
+                    </small>
+                </div>
+                {% endif %}
                 <hr>
                 <div class="row text-center">
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
