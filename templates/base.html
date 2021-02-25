@@ -57,7 +57,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
-                                        <a href="#" class="dropdown-item">Product Management</a>
+                                        <a href="{% url 'add_product_to_store' %}" class="dropdown-item">Product Management</a>
                                     {% endif %}
                                     <a href="{% url 'profiles' %}" class="dropdown-item">Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
