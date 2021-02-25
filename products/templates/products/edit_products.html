@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/products/products.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="page-header">Product Management</h2>
+                <hr class="h2-line">
+            </div>
+        </div>
+    
+
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h5 class="page-header">Edit Product</h5>
+                <hr class="h5-line">
+                <form method="POST" action="{% url 'edit_product_on_store' product.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-left py-2">
+                        <a href="{% url 'products' %}" class="btn btn-dark">
+                            <span class="icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            <span class="text-white">Cancel</span>
+                        </a>
+                        <button class="btn btn-dark" type="submit">Update Product</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>
+{% endblock %}
