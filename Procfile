@@ -1,0 +1,1 @@
+web: gunicorn top_football.wsgi:application

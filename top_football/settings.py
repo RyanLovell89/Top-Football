@@ -27,7 +27,7 @@ SECRET_KEY = '5#bseot1%-kk1v-xzssu&^wv#=y+7*p_wt@vvolvxh*pm8)e3u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['top-football.herokuapp.com', 'localhost']
 
 
 # Application definition, added allauth and social account
