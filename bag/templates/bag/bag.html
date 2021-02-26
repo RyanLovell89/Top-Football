@@ -97,16 +97,18 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="10">
-                                        <a class="btn btn-lg mt-2 bag-button" href="{% url 'checkout' %}">
+                                    <td colspan="10" class="text-right">
+                                        <a href="{% url 'products' %}" class="btn btn-light">
                                             <span class="icon">
-                                                <i class="fas fa-lock"></i> <strong>Secure Checkout</strong>
+                                                <i class="fas fa-arrow-left"></i>
                                             </span>
+                                            <span class="text-black">All Shirts</span>
                                         </a>
-                                        <a class="btn btn-lg mt-2 bag-button" href="{% url 'products' %}">
+                                        <a href="{% url 'checkout' %}" class="btn btn-light">
                                             <span class="icon">
-                                                <i class="fas fa-arrow-left"></i> All Shirts
+                                                <i class="fas fa-lock"></i>
                                             </span>
+                                            <span class="text-black"><strong>Secure Checkout</strong></span>
                                         </a>
                                     </td>
                                 </tr>
@@ -115,10 +117,11 @@
                     </div>
                 {% else %}
                     <p>The bag is empty.</p>
-                        <a class="btn nav-link mt-2 all-shirts-button" href="{% url 'products' %}">
+                        <a href="{% url 'products' %}" class="btn btn-dark">
                             <span class="icon">
-                                <i class="fas fa-arrow-left"></i> <strong>All Shirts</strong>
+                                <i class="fas fa-arrow-left"></i>
                             </span>
+                            <span class="text-white">All Shirts</span>
                         </a>
                 {% endif %}
             </div>
