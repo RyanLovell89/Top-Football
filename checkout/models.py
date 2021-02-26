@@ -14,7 +14,7 @@ class OrderInformation(models.Model):
     class Meta:
         verbose_name_plural = 'Order Information'
 
-    order_number = models.CharField(max_length=20, null=False, editable=False)
+    order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name="order")
     full_name = models.CharField(max_length=40, null=False, blank=False)
     email_address = models.EmailField(max_length=300, null=False, blank=False)
