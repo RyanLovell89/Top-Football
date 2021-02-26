@@ -37,7 +37,7 @@ html {
 /* -------------- navbar stylings ---------------- */
 
 .all-shirts-button-image {
-    background-image: url('/media/all-shirts-button.jpg');
+    background-image: url('media/all-shirts-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
@@ -45,7 +45,7 @@ html {
 }
 
 .premier-league-button-image {
-    background-image: url('/media/premier-league-button.jpg');
+    background-image: url('media/premier-league-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
@@ -53,7 +53,7 @@ html {
 }
 
 .championship-button-image {
-    background-image: url('/media/championship-button.jpg');
+    background-image: url('media/championship-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
@@ -61,7 +61,7 @@ html {
 }
 
 .league-one-button-image {
-    background-image: url('/media/league-one-button.jpg');
+    background-image: url('media/league-one-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
@@ -69,7 +69,7 @@ html {
 }
 
 .league-two-button-image {
-    background-image: url('/media/league-two-button.jpg');
+    background-image: url('media/league-two-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
