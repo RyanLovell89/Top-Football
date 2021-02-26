@@ -40,7 +40,7 @@
                             {% for orderinformation in order %}
                                 <tr>
                                     <td>
-                                        <a href="{% url 'order_history' orderinformation.order_number %}" title="{{ orderinformation.order_number }}">
+                                        <a href="{% url 'order_number_history' orderinformation.order_number %}" title="{{ orderinformation.order_number }}">
                                             {{ orderinformation.order_number|truncatechars:5 }}
                                         </a>
                                     </td>
