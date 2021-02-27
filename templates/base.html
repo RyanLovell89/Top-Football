@@ -115,7 +115,23 @@
         </header>    
 
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+             <div class="message-container text-center">
+                {% for message in messages %}
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                            {% include 'includes/messages/error_message.html' %}
+                        {% elif level == 30 %}
+                            {% include 'includes/messages/warning_message.html' %}
+                        {% elif level == 25 %}
+                            {% include 'includes/messages/success_message.html' %}
+                        {% else %}
+                            {% include 'includes/messages/information_message.html' %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
     {% endif %}
 
     {% block page_header %}
