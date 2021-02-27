@@ -8,3 +8,7 @@
     color: #000;
     border: 1px solid #000
 }
+
+.background {
+    background-color: rgba(245, 245, 248, 0.8);
+}

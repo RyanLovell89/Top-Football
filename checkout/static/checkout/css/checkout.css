@@ -34,6 +34,10 @@
     height: 100%;
 }
 
+.background {
+    background-color: rgba(245, 245, 248, 0.8);
+}
+
 /*---------- Stripe -----------*/
 
 .StripeElement,

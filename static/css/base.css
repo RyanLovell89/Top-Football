@@ -4,6 +4,15 @@ html {
     height: 100%;
 }
 
+body {
+    background: url('/media/premier-League-football-kits-2020-21.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.background {
+    background-color: rgba(245, 245, 248, 0.8);
+}
+
 /* -------------- header styling ---------------- */
 
 .logo {
