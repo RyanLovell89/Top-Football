@@ -21,6 +21,7 @@
             <div class="row">
                 <div class="col-10 offset-1">
                     <div class="row">
+                        <!--------- sort box ------------>
                         <div class="col-12 col-md-6 order-md-last d-flex justify-content-center justify-content-md-end">
                             <div class="sort-selector-wrapper w-50">
                                 <select id="sort-selector" class="custom-select custom-select-sm {% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -44,6 +45,7 @@
                         </div>
                     </div>
                     <div class="row">
+                        <!---------- shows products ----------->
                         {% for product in products %}
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                                 <div class="card h-100">
@@ -69,6 +71,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!----------- sorts out cols across screen sizes --------->
                             {% if forloop.counter|divisibleby:1 %}
                                 <div class="col-12 d-sm-none">
                                     <hr>
@@ -104,6 +107,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <!-------- scroll top to logic ----------->
     <script type="text/javascript">
 		$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)

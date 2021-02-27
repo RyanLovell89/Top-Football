@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+# shows all products and search results
 def all_products(request):
 
     products = Product.objects.all()
@@ -58,6 +59,7 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+# shows the product information
 def product_information(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
@@ -69,6 +71,7 @@ def product_information(request, product_id):
     return render(request, 'products/product_information.html', context)
 
 
+# adds products to the store
 @login_required
 def add_product_to_store(request):
 
@@ -96,6 +99,7 @@ def add_product_to_store(request):
     return render(request, template, context)
 
 
+# edits a product on the store
 @login_required
 def edit_product_on_store(request, product_id):
 
@@ -125,6 +129,7 @@ def edit_product_on_store(request, product_id):
     return render(request, template, context)
 
 
+# deletes a product from the store
 @login_required
 def delete_product_on_store(request, product_id):
 

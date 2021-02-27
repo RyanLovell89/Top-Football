@@ -10,11 +10,13 @@ import time
 
 
 class StripeWH_Handler:
+    # Handle Stripe Webhooks
 
     def __init__(self, request):
 
         self.request = request
 
+    # sends user confirmation email
     def _sending_confirmation_email(self, order):
 
         custom_email_address = order.email_address
@@ -32,12 +34,14 @@ class StripeWH_Handler:
             [custom_email_address]
         )
 
+    # handle unknown webhook
     def handle_event(self, event):
 
         return HttpResponse(
             content=f'Unhandled webhook received: {event["type"]}',
             status=200)
 
+    # handle the successful webhook payment
     def handle_payment_intent_succeeded(self, event):
 
         intent = event.data.object
@@ -53,6 +57,7 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+        # updates the users profile information if save info is checked
         profile = None
         username = intent.metadata.username
         if username != 'AnonUser':
@@ -138,6 +143,7 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]} | Success, Order created in webhook',
             status=200)
 
+    # handle the failed webhook payment
     def handle_payment_intent_payment_failed(self, event):
 
         return HttpResponse(

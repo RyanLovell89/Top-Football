@@ -30,6 +30,7 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+# checkout view
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -129,6 +130,7 @@ def checkout(request):
     return render(request, template, context)
 
 
+# checkout success view
 def checkout_successful(request, order_number):
 
     save_info = request.session.get('save_info')

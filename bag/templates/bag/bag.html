@@ -11,6 +11,9 @@
 {% endblock %}
 
 {% block content %}
+
+<!----------- bag ------------->
+
     <div class="card background">
         <div class="container">
             <div class="row">
@@ -117,6 +120,7 @@
                             </table>
                         </div>
                     {% else %}
+                    <!----------- empty bag -------------->
                         <p>The bag is empty.</p>
                             <div class="row my-5">
                                 <div class="col-4">
@@ -139,6 +143,7 @@
 {{ block.super }}
 {% include 'products/includes/qty_script.html' %}
 
+<!-- button logic for plus and minus -->
 <script type="text/javascript">
     // Updates the quantity
     $('.update-link').click(function(e) {

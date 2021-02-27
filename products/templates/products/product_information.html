@@ -13,6 +13,7 @@
     <div class="card background">
         <div class="container-fluid">
             <div class="row">
+                <!--------- product information ---------->
                 <div class="col-12 col-md-6 col-lg-4 offset-lg-2 desktop-image mobile-image">
                     <div class="image-container">
                         <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -31,6 +32,7 @@
                             {{ product.description }}
                         </p>
                     </div>
+                    <!------- delete or edit a product ---------->
                     {% if request.user.is_superuser %}
                     <div class="text-center">
                         <small>
@@ -44,6 +46,7 @@
                         <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                             {% csrf_token %}
                             <div class="form-row">
+                                <!--------- side selector box -------->
                                 {% with product.product_sizes as s %}
                                 {% if s %}
                                     <div class="col-12 center-input w-50">
@@ -59,6 +62,7 @@
                                     </div>
                                 {% endif %}
                                 <div class="col-12 mt-3">
+                                    <!------- plus and minus quantity box ---------->
                                     <p>Quantity:</p>
                                     <div class="form-group center-input w-50">
                                         <div class="input-group">

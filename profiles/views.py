@@ -6,6 +6,7 @@ from checkout.models import OrderInformation
 from django.contrib.auth.decorators import login_required
 
 
+# shows users profile
 @login_required
 def profiles(request):
 
@@ -31,6 +32,7 @@ def profiles(request):
     return render(request, template, context)
 
 
+# shows customer order history
 def order_number_history(request, order_number):
     order = get_object_or_404(OrderInformation, order_number=order_number)
 
