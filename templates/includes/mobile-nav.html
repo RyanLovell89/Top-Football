@@ -1,10 +1,65 @@
 <div class="row w-100 mobile-nav">
 
-    <div class="row">
 
         <div class="d-flex justify-content-center">
 
-            <ul class= "list-inline list-unstyled">
+            <ul class= "list-inline list-unstyled mb-0">
+
+                <li class="list-inline-item">
+                    <p>
+                        <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+
+                        <div class="card card-body">
+
+                            <ul class= "list-inline list-unstyled">
+
+                                <li class="nav-item list-inline-item dropdown">
+                                    <button class="nav-link btn mt-2 all-shirts-button-image" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="nav-style" href="#">
+                                            <strong>All Shirts</strong>
+                                        </a>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="{% url 'products' %}">All Shirts</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item list-inline-item">
+                                    <a class="btn nav-link btn mt-2 premier-league-button-image" href="{% url 'products' %}?category=premier_league" role="button">
+                                        <strong>Premier League</strong>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item list-inline-item">
+                                    <a class="btn nav-link btn mt-2 championship-button-image" href="{% url 'products' %}?category=championship" role="button">
+                                        <strong>Championship</strong>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item list-inline-item">
+                                    <a class="btn nav-link btn mt-2 league-one-button-image" href="{% url 'products' %}?category=league_one" role="button">
+                                        <strong>League One</strong>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item list-inline-item">
+                                    <a class="btn nav-link btn mt-2 league-two-button-image" href="{% url 'products' %}?category=league_two" role="button">
+                                        <strong>League Two</strong>
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </li>
+
                 <li class="list-inline-item dropdown">
                     <div class="dropdown pt-2">
                         <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,7 +81,7 @@
                 </li>
 
                 <li class="list-inline-item">
-                    <a class="{% if grand_total %}text-black font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                    <a class="px-0 {% if grand_total %}text-black{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
                         <div>
                             <p>
                                 {% if grand_total %}
@@ -42,59 +97,6 @@
 
         </div>
 
-    </div>
-
-    <p>
-        <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <i class="fas fa-bars"></i>
-        </a>
-    </p>
-    <div class="collapse" id="collapseExample">
-
-        <div class="card card-body">
-
-            <ul class= "list-inline list-unstyled">
-
-           <li class="nav-item list-inline-item dropdown">
-                <button class="nav-link btn mt-2 all-shirts-button-image" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <a class="nav-style" href="#">
-                        <strong>All Shirts</strong>
-                    </a>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="{% url 'products' %}">All Shirts</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">By Price</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item list-inline-item">
-                <a class="btn nav-link btn mt-2 premier-league-button-image" href="{% url 'products' %}?category=premier_league" role="button">
-                    <strong>Premier League</strong>
-                </a>
-            </li>
-
-            <li class="nav-item list-inline-item">
-                <a class="btn nav-link btn mt-2 championship-button-image" href="{% url 'products' %}?category=championship" role="button">
-                    <strong>Championship</strong>
-                </a>
-            </li>
-
-            <li class="nav-item list-inline-item">
-                <a class="btn nav-link btn mt-2 league-one-button-image" href="{% url 'products' %}?category=league_one" role="button">
-                    <strong>League One</strong>
-                </a>
-            </li>
-
-            <li class="nav-item list-inline-item">
-                <a class="btn nav-link btn mt-2 league-two-button-image" href="{% url 'products' %}?category=league_two" role="button">
-                    <strong>League Two</strong>
-                </a>
-            </li>
-
-        </ul>
-
-        </div>
-    </div>
+    
 
 </div>
