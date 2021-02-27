@@ -13,6 +13,10 @@ body {
     background-color: rgba(245, 245, 248, 0.8);
 }
 
+.positioning {
+    margin-top: 150px;
+}
+
 /* -------------- header styling ---------------- */
 
 .logo {
@@ -41,6 +45,13 @@ body {
     font-family: 'Lexend Mega', sans-serif;
     color: #fff;
     padding-top: 5px;
+}
+
+.info-heading {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Lexend Mega', sans-serif;
+    padding: 8px;
 }
 
 /* -------------- navbar stylings ---------------- */
