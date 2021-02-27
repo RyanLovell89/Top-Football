@@ -1,4 +1,4 @@
-/* -------------- generl styling --------------- */
+/* -------------- general styling --------------- */
 
 html {
     height: 100%;
@@ -37,43 +37,48 @@ html {
 /* -------------- navbar stylings ---------------- */
 
 .all-shirts-button-image {
-    background-image: url('media/all-shirts-button.jpg');
+    background-image: url('/media/all-shirts-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
     font-size: 14px;
+    color: #fff;
 }
 
 .premier-league-button-image {
-    background-image: url('media/premier-league-button.jpg');
+    background-image: url('/media/premier-league-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
     font-size: 14px;
+    color: #fff;
 }
 
 .championship-button-image {
-    background-image: url('media/championship-button.jpg');
+    background-image: url('/media/championship-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
     font-size: 14px;
+    color: #fff;
 }
 
 .league-one-button-image {
-    background-image: url('media/league-one-button.jpg');
+    background-image: url('/media/league-one-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
     font-size: 14px;
+    color: #fff;
 }
 
 .league-two-button-image {
-    background-image: url('media/league-two-button.jpg');
+    background-image: url('/media/league-two-button.jpg');
     background-size: cover; 
     width: 148px; 
     height: 42px;
     font-size: 14px;
+    color: #fff;
 }
 
 .nav-style {
@@ -82,7 +87,7 @@ html {
 }
 
 a:hover {
-  color: #000;
+    color: #000;
 }
 
 /* -------------- header stylings ---------------- */
