@@ -214,6 +214,8 @@ the build at different points I added my key to the config vars in heroku app, i
 After that set up automatic deploys this was done by selecting the branch, ie the master. AWS set for deployment as well hosting all my media and static files, that was done following
 the gudie from the course content.
 
+The website can be accessed by this link [Top-Football](https://top-football.herokuapp.com/)
+
 # Credits
 
 ## Content
